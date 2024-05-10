@@ -9,7 +9,7 @@ cv.waitKey(0)
 """
 
 #Lendo videos
-capture = cv.VideoCapture("Videos\miau.mp4") # 0 como argumento abre a webcam
+capture = cv.VideoCapture(0) # 0 como argumento abre a webcam
 
 while True:
     isTrue, frame = capture.read()
