@@ -1,6 +1,7 @@
 import cv2 as cv
+import numpy as np
 
-img = cv.imread('Photos/pessoa.webp')
+img = cv.imread('Photos/weeknd.jpeg')
 cv.imshow('Pessoa', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -9,6 +10,7 @@ cv.imshow('Gray People', gray)
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 capture = cv.VideoCapture(0) # 0 como argumento abre a webcam
+
 
 while True:
     isTrue, frame = capture.read()
