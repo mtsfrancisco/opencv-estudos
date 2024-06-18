@@ -4,11 +4,11 @@ import dlib
 from time import time
 import matplotlib.pyplot as plt
 
-opencv_dnn_model = cv2.dnn.readNetFromCaffe(prototxt=r"Opencv-DNN/deploy.prototxt",
-                                            caffeModel=r"Opencv-DNN/res10_300x300_ssd_iter_140000_fp16.caffemodel")
+opencv_dnn_model = cv2.dnn.readNetFromCaffe(prototxt=r"C:\Users\mathe\OneDrive\Documentos\Opencv-DNN\deploy.prototxt",
+                                            caffeModel=r"C:\Users\mathe\OneDrive\Documentos\Opencv-DNN\res10_300x300_ssd_iter_140000_fp16.caffemodel")
 
 
-def cvDnnDetectFaces(image, opencv_dnn_model, min_confidence=0.7, display = True):
+def cvDnnDetectFaces(image, opencv_dnn_model, min_confidence=0.5, display = True):
 
     image_height, image_width, _ = image.shape
 
@@ -19,10 +19,10 @@ def cvDnnDetectFaces(image, opencv_dnn_model, min_confidence=0.7, display = True
 
     opencv_dnn_model.setInput(preprocessed_image)
 
-    results = opencv_dnn_model.forward()   
-    
+    results = opencv_dnn_model.forward()    
 
     for face in results[0][0]:
+        
         face_confidence = face[2]
         
         if face_confidence > min_confidence:
@@ -47,7 +47,7 @@ def cvDnnDetectFaces(image, opencv_dnn_model, min_confidence=0.7, display = True
     
 image = cv2.imread('pessoas.jpg')
 
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(r"C:\Users\mathe\OneDrive\Documentos\Opencv-DNN\video.mp4")
 
 while True:
     video_return, video_frame = video.read()
