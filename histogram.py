@@ -18,22 +18,26 @@ cv.imshow('Mask', mask)
 #Grayscale histogram
 gray_hist = cv.calcHist([gray], [0], mask, [256], [0,256]) # Posso passar uma mascara no terceiro elemento
 
-
-
-plt.figure()
-plt.title('Grayscale histogram')
-plt.xlabel('Bins')
-plt.ylabel('# number of pixels')
-plt.plot(gray_hist)
-plt.xlim([0,256])
-plt.show()
+# plt.figure()
+# plt.title('Grayscale histogram')
+# plt.xlabel('Bins')
+# plt.ylabel('# number of pixels')
+# plt.plot(gray_hist)
+# plt.xlim([0,256])
+# plt.show()
 
 
 #Color histogram
-#colors = ('b','g','r')
-#for i, col in enumerate(colors):
-#    hist = cv.calcHist([img], [i], None, [256], [0, 256])
-#    plt.plot(hist, color=col)
-#    plt.xlim([0, 256])
+chans = cv.split(img)
+colors = ('b','g','r')
+plt.figure()
+plt.title('Color histogram')
+plt.xlabel('Bins')
+plt.ylabel('# number of pixels')
+for i, col in enumerate(colors):
+    hist = cv.calcHist([img], [i], None, [256], [0, 256])
+    plt.plot(hist, color=col)
+    plt.xlim([0, 256])
+plt.show()
 
 cv.waitKey(0)

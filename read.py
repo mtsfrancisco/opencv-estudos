@@ -5,7 +5,7 @@ import cv2 as cv
 img = cv.imread('Photos\Cat.jpg') #
 cv.imshow('Cat', img) #mostra a imagem em uma tela
 
-cv.waitKey(0)
+cv.waitKey(0)d
 """
 
 #Lendo videos

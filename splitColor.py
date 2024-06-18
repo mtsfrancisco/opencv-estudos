@@ -8,6 +8,7 @@ cv.imshow('Cat', img)
 blank = np.zeros(img.shape[:2], dtype='uint8')
 
 b,g,r = cv.split(img)
+cv.imshow("b",b)
 
 blue = cv.merge([b,blank,blank])
 green = cv.merge([blank,g,blank])

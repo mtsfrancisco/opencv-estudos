@@ -13,6 +13,9 @@ haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 features = []
 labels = []
+print(people)
+
+
 def create_train():
     for person in people:
         path = os.path.join(DIR, person)
